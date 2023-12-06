@@ -1,0 +1,33 @@
+ ***** BubbleSort ****
+
+        static void Main()
+        {
+            int[] arr = { 64, 34, 25, 12, 22, 11, 90 };
+            Console.WriteLine("Original array: " + string.Join(", ", arr));
+
+            BubbleSort(arr);
+
+            Console.WriteLine("Sorted array: " + string.Join(", ", arr));
+        }
+
+        static void BubbleSort(int[] a)
+        {
+            int outer, inner;
+
+            for (outer = a.Length - 1; outer > 0; outer--)
+            {
+                
+                for (inner = 0; inner < outer; inner++)
+                {
+              
+                    if (a[inner] > a[inner + 1])
+                    {
+                        
+                        int temp = a[inner];
+                        a[inner] = a[inner + 1];
+                        a[inner + 1] = temp;
+                    }
+                }
+            }
+        }
+    }

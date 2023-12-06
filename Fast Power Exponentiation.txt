@@ -1,0 +1,47 @@
+****** FastPower  ***** 
+
+
+        static void Main()
+        {
+            int baseNumber = 2;
+            int exponent = 31;
+
+            long resultFastPower = FastPower(baseNumber, exponent);
+            Console.WriteLine($"fastPower({baseNumber}, {exponent}) = {resultFastPower}");
+
+
+            long resultNormalPower = NormalPower(baseNumber, exponent);
+            Console.WriteLine($"NormalPower({baseNumber}, {exponent}) = {resultNormalPower}");
+        }
+
+        static long FastPower(int baseNumber, int exponent)
+        {
+            if (exponent == 0)
+            {
+                return 1;
+            }
+            else if (exponent % 2 == 0)
+            {
+                long halfPow = FastPower(baseNumber, exponent / 2);
+                Console.WriteLine($"({halfPow} * {halfPow})");
+                return halfPow * halfPow;
+            }
+            else
+            {
+                long halfPow = FastPower(baseNumber, (exponent - 1) / 2);
+                Console.WriteLine($"({baseNumber} * {halfPow} * {halfPow})");
+                return baseNumber * halfPow * halfPow;
+            }
+        }
+
+        static long NormalPower(int baseNumber, int exponent)
+        {
+            long pow = baseNumber;
+            for (int x = 1; x < exponent; x++)
+            {
+                pow *= baseNumber;
+                Console.Write($"{baseNumber} * ");
+            }
+            return pow;
+        }
+    }

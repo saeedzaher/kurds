@@ -1,0 +1,38 @@
+ ***** Sequential Search, ****
+_______________________________________________________________________________________________________________
+  
+     
+         static void Main()
+        {
+            int[] arr = { 34, 52, 80, 75, 7, 4, 2, 9, 12, 14, 3, 1, 16, 10, 0, 54, 8 };
+            int arraySize = arr.Length;
+            int target = 8;
+            bool found = false;
+
+            Console.WriteLine($"ARRAY SIZE IS {arraySize}");
+            Console.WriteLine($"In Sequential Search, we need N to be searched: {target}");
+            Console.WriteLine(string.Join(", ", arr) + "\n");
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                if (target == arr[i])
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found)
+            {
+                Console.WriteLine("Target Found");
+            }
+            else
+            {
+                Console.WriteLine("Target Not Found");
+            }
+        }
+_________________________________________________________
+
+
+
+****

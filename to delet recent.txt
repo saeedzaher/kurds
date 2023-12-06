@@ -1,0 +1,7 @@
+
+
+
+1- start %AppData%\Microsoft\Windows\Recent
+
+2-del /Q %AppData%\Microsoft\Windows\Recent\*
+

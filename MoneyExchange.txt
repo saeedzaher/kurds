@@ -1,0 +1,48 @@
+    
+
+********* MoneyExchange *******
+
+
+
+
+
+
+static void Main()
+    {
+        int[] coins = { 25, 10, 5, 1 };
+        int n = 72;
+
+        MoneyExchange(coins, n);
+    }
+
+    static void MoneyExchange(int[] coins, int n)
+    {
+        int m = n;
+        int numCoin = 0;
+        int[] nums = new int[4]; 
+
+        int i = 0;
+        while (n != 0)
+        {
+            Console.Write($"{n}, {coins[i]} | ");
+            if (n >= coins[i])
+            {
+                n -= coins[i];
+                nums[i]++;
+                numCoin++;
+            }
+            else
+            {
+                i++;
+            }
+        }
+
+        Console.WriteLine($"\nTotal Number of coins = {numCoin}");
+        Console.WriteLine($"Total Number of return = {m}");
+
+        for (int j = 0; j < coins.Length; j++)
+        {
+            Console.WriteLine($"Total Number of {coins[j]} coins = {nums[j]}");
+        }
+    }
+}

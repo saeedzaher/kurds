@@ -1,0 +1,40 @@
+    
+*********             **********
+********* FastModuler **********
+
+
+
+static void Main()
+    {
+        int x = 8;
+        int n = 21;
+        int m = 12;
+
+        Console.WriteLine(Math.Pow(x, n) % m); 
+
+        int result = FastModuler(x, n, m);
+        Console.WriteLine($"Result is {result}");
+    }
+
+    static int FastModuler(int x, int n, int m)
+    {
+        if (n == 0)
+        {
+            return 1;
+        }
+        else if (n % 2 == 0)
+        {
+            int result = FastModuler(x, n / 2, m);
+            Console.WriteLine($"{result} * {result} % {m}");
+            Console.WriteLine($"{(result * result) % m}");
+            return (int)((result * result) % m);
+        }
+        else
+        {
+            int result = FastModuler(x, n - 1, m);
+            Console.WriteLine($"{x} * {result} * {result} % {m}");
+            Console.WriteLine($"{(x * result * result) % m}");
+            return (int)((x * result * result) % m);
+        }
+    }
+}

@@ -1,0 +1,34 @@
+ ******   SelectionSort  ******
+        static void SelectionSort(int[] a)
+        {
+            int outer, inner, min;
+            for (outer = 0; outer < a.Length - 1; outer++)
+            {
+            
+                min = outer;
+
+                for (inner = outer + 1; inner < a.Length; inner++)
+                {
+                    if (a[inner] < a[min])
+                    {
+                        min = inner;
+                    }
+                }
+
+                int temp = a[outer];
+                a[outer] = a[min];
+                a[min] = temp;
+            }
+        }
+
+        static void Main()
+        {
+            int[] arrayToSort = { 64, 34, 25, 12, 22, 11, 90 };
+
+            Console.WriteLine("Original array: " + string.Join(", ", arrayToSort));
+
+            SelectionSort(arrayToSort);
+
+            Console.WriteLine("Sorted array: " + string.Join(", ", arrayToSort));
+        }
+    }

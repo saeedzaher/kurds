@@ -1,0 +1,70 @@
+ ***** MergeSort ***
+
+static void MergeSort(int[] A)
+    {
+        int n = A.Length;
+
+        if (n < 2)
+            return;
+
+        int mid = n / 2;
+        int[] left = new int[mid];
+        int[] right = new int[n - mid];
+
+        for (int i = 0; i < mid; i++)
+            left[i] = A[i];
+
+        for (int i = mid; i < n; i++)
+            right[i - mid] = A[i];
+
+        MergeSort(left);
+        MergeSort(right);
+        Merge(left, right, A);
+    }
+
+    static int[] Merge(int[] left, int[] right, int[] A)
+    {
+        int i = 0, j = 0, count = 0;
+
+        while (count < A.Length)
+        {
+            if (i < left.Length && j < right.Length)
+            {
+                if (left[i] < right[j])
+                {
+                    A[count] = left[i];
+                    i++;
+                }
+                else
+                {
+                    A[count] = right[j];
+                    j++;
+                }
+            }
+            else if (i == left.Length && j < right.Length)
+            {
+                A[count] = right[j];
+                j++;
+            }
+            else if (j == right.Length && i < left.Length)
+            {
+                A[count] = left[i];
+                i++;
+            }
+
+            count++;
+        }
+
+        return A;
+    }
+
+    static void Main()
+    {
+        int[] arr = { 64, 34, 25, 12, 22, 11, 90 };
+        Console.WriteLine("Original array: " + string.Join(", ", arr));
+
+        MergeSort(arr);
+
+        Console.WriteLine("Sorted array: " + string.Join(", ", arr));
+    }
+}

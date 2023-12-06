@@ -1,0 +1,57 @@
+   **********
+
+ static void Main()
+    {
+        int[] jobs = { 3, 5, 6, 10, 11, 14, 15, 18, 20 };
+        int process = 3;
+
+        ShortestJob(jobs, process);
+    }
+
+    static void ShortestJob(int[] jobs, int process)
+    {
+        int[] shortJob = new int[process];
+
+        for (int i = 0; i < jobs.Length; i++)
+        {
+            int indexSmall = MinIndex(shortJob);
+            shortJob[indexSmall] += jobs[i];
+        }
+
+        Console.WriteLine("Result:");
+        foreach (int val in shortJob)
+        {
+            Console.Write(val + " ");
+        }
+    }
+
+    static int MaxValue(int[] jobs)
+    {
+        int max = 0;
+
+        for (int i = 0; i < jobs.Length; i++)
+        {
+            if (jobs[i] > max)
+            {
+                max = jobs[i];
+            }
+        }
+
+        return max;
+    }
+
+    static int MinIndex(int[] shortJob)
+    {
+        int min = 0;
+
+        for (int i = 0; i < shortJob.Length; i++)
+        {
+            if (shortJob[i] < shortJob[min])
+            {
+                min = i;
+            }
+        }
+
+        return min;
+    }
+}

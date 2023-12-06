@@ -1,0 +1,60 @@
+ ***** Binary Search, ****
+_______________________________________________________________________________________________________________
+  
+     
+         static bool BinarySearch(int[] arr, int first, int arraySize, int target)
+ {
+     if (first > arraySize)
+     {
+         return false;
+     }
+
+     int med = (arraySize + first) / 2;
+     Console.WriteLine(string.Join(", ", arr));
+     Console.WriteLine($"First: {first}, End: {arraySize}, Target: {target}");
+     Console.WriteLine($"{arr[med]}\n");
+     Console.WriteLine($"{arr[med]} == {target}\n");
+
+     if (arr[med] == target)
+     {
+         return true;
+     }
+     else if (arr[med] < target)
+     {
+         Console.WriteLine("First\n");
+         return BinarySearch(arr, med + 1, arraySize, target);
+     }
+     else if (arr[med] > target)
+     {
+         return BinarySearch(arr, first, med - 1, target);
+     }
+
+     return false;
+ }
+
+ static void Main()
+ {
+     int[] arr = { 0, 1, 2, 3, 4, 7, 8, 9, 10, 12, 14, 16, 34, 52, 54, 75, 80 };
+     int arraySize = arr.Length;
+     int target = 8;
+     bool found = false;
+
+     Console.WriteLine($"ARRAY SIZE IS {arraySize}");
+     Console.WriteLine($"In Binary Search, we need Log N to be searched: {target}");
+     Console.WriteLine(string.Join(", ", arr) + "\n");
+
+     found = BinarySearch(arr, 0, arraySize, target);
+
+     if (found)
+     {
+         Console.WriteLine("Target Found");
+     }
+     else
+     {
+         Console.WriteLine("Target Not Found");
+     }
+_________________________________________________________
+
+
+
+****
